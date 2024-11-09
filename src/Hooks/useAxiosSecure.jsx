@@ -11,7 +11,8 @@ const useAxiosSecure = () => {
    const { logOut } = useAuth();
 
    axiosSecure.interceptors.request.use((config) => {
-      config.withCredentials = true;
+      const token = localStorage.getItem('token')
+      config.headers.authorization = `Bearer ${token}`;
       return config;
    }, (error) => {
       return Promise.reject(error);

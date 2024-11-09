@@ -43,10 +43,16 @@ const AuthProvider = ({ children }) => {
          setUser(currentUser);
          if (currentUser) {
             const newUser = { email: currentUser.email }
-            axiosPublic.post('/jwt', newUser, { withCredentials: true })
+            axiosPublic.post('/jwt', newUser)
                .then(res => {
-
+                  console.log(res);
+                  if (res.data.token) {
+                     localStorage.setItem('token', res.data.token);
+                  }
                })
+         }
+         else {
+            localStorage.removeItem('token');
          }
          setLoading(false);
       })
