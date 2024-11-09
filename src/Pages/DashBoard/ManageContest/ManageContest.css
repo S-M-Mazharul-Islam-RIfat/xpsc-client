@@ -1,0 +1,20 @@
+.custom-add-btn {
+   padding: 0px 12px;
+   border-radius: 5px;
+   background-color: #00a9dd;
+   border: none;
+}
+
+.custom-update-btn {
+   padding: 0px 12px;
+   border-radius: 5px;
+   background-color: #dd9000;
+   border: none;
+}
+
+.custom-delete-btn {
+   padding: 0px 12px;
+   border-radius: 5px;
+   background-color: #cf4141;
+   border: none;
+}
