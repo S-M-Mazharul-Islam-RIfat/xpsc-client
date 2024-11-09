@@ -69,6 +69,15 @@ const Login = () => {
                });
                navigate(from, { replace: true });
             })
+            .catch((error) => {
+               Swal.fire({
+                  position: "top-end",
+                  icon: "error",
+                  title: "User Doesnt Exist",
+                  showConfirmButton: false,
+                  timer: 1500
+               });
+            });
       }
       else {
          Swal.fire({
