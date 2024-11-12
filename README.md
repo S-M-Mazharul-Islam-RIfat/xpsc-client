@@ -3,6 +3,10 @@
 
 This is a fully responsive full-stack Problem Solving Club management system for the Xettabyte Problem Solving Club based on Codeforces. Through this platform, users can view the club leaderboard and check the lists of participants and non-participants for each Codeforces contest.
 
+## Admin Credential
+- Email - admin@gmail.com
+- Password - admiN12@
+
 ## Features
 - User can create account and login via firebase.
 - User can view the club leaderboard.
