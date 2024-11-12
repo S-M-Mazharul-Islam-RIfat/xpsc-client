@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-   baseURL: 'https://xpsc-86074.web.app'
+   baseURL: 'https://xpsc-server.vercel.app'
 })
 const useAxiosPublic = () => {
    return axiosPublic;
