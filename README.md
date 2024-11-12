@@ -11,7 +11,7 @@ This is a fully responsive full-stack Problem Solving Club management system for
 - Admin can add,delete and manage club students.
 - Admin can manage all users.
 - Admin can add each contest results of codeforces by merging 3 Codeforces api.
-- Admin can manage contest results.
+- Admin can manage contest and contest results.
 - Admin have the dashboard.
 
 ## Frontend Technology
