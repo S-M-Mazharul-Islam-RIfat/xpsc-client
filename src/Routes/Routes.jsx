@@ -40,12 +40,12 @@ export const router = createBrowserRouter([
          },
          {
             path: 'resultTypes/codeforcesContestListOfParticipants',
-            loader: () => fetch('http://localhost:5000/codeforcesContestList'),
+            loader: () => fetch('https://xpsc-86074.web.app/codeforcesContestList'),
             element: <PrivateRoute><CodeforcesContestListOfParticipants></CodeforcesContestListOfParticipants></PrivateRoute>
          },
          {
             path: 'resultTypes/codeforcesContestListOfNonParticipants',
-            loader: () => fetch('http://localhost:5000/codeforcesContestList'),
+            loader: () => fetch('https://xpsc-86074.web.app/codeforcesContestList'),
             element:
                <PrivateRoute>
                   <CodeforcesContestListOfNonParticipants></CodeforcesContestListOfNonParticipants>
@@ -53,18 +53,18 @@ export const router = createBrowserRouter([
          },
          {
             path: 'resultTypes/codeforcesContestListOfParticipants/:contestId',
-            loader: ({ params }) => fetch(`http://localhost:5000/codeforcesContestParticipantsResultsCountByContestId/${params.contestId}`),
+            loader: ({ params }) => fetch(`https://xpsc-86074.web.app/codeforcesContestParticipantsResultsCountByContestId/${params.contestId}`),
             element: <PrivateRoute><CodeforcesIndividualContestResultOfParticipants></CodeforcesIndividualContestResultOfParticipants></PrivateRoute>
          },
          {
             path: 'resultTypes/codeforcesContestListOfNonParticipants/:contestId',
-            loader: ({ params }) => fetch(`http://localhost:5000/codeforcesContestNonParticipantsResultsCountByContestId/${params.contestId}`),
+            loader: ({ params }) => fetch(`https://xpsc-86074.web.app/codeforcesContestNonParticipantsResultsCountByContestId/${params.contestId}`),
             element: <PrivateRoute><CodeforcesIndividualContestResultOfNonParticipants></CodeforcesIndividualContestResultOfNonParticipants></PrivateRoute>
          },
          {
             path: 'leaderBoard',
             element: <PrivateRoute><LeaderBoard></LeaderBoard></PrivateRoute>,
-            loader: () => fetch(`http://localhost:5000/clubUsersCount`)
+            loader: () => fetch(`https://xpsc-86074.web.app/clubUsersCount`)
          },
          {
             path: 'login',
@@ -91,7 +91,7 @@ export const router = createBrowserRouter([
          {
             path: 'updateContest/:id',
             element: <AdminRoute><UpdateContest></UpdateContest></AdminRoute>,
-            loader: ({ params }) => fetch(`http://localhost:5000/codeforcesContstList/${params.id}`)
+            loader: ({ params }) => fetch(`https://xpsc-86074.web.app/codeforcesContstList/${params.id}`)
          },
          {
             path: 'addClubUser',
@@ -100,12 +100,12 @@ export const router = createBrowserRouter([
          {
             path: 'manageClubUser',
             element: <AdminRoute><ManageClubUsers></ManageClubUsers></AdminRoute>,
-            loader: () => fetch(`http://localhost:5000/clubUsersCount`)
+            loader: () => fetch(`https://xpsc-86074.web.app/clubUsersCount`)
          },
          {
             path: 'updateClubUser/:id',
             element: <AdminRoute><UpdateClubUser></UpdateClubUser></AdminRoute>,
-            loader: ({ params }) => fetch(`http://localhost:5000/clubUsers/${params.id}`)
+            loader: ({ params }) => fetch(`https://xpsc-86074.web.app/clubUsers/${params.id}`)
          },
          {
             path: 'manageAllUsers',
