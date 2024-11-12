@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { useState } from "react";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Login = () => {
    const { googleSignIn, signIn } = useAuth();
@@ -12,10 +14,16 @@ const Login = () => {
    const navigate = useNavigate();
    const location = useLocation();
    const from = location.state?.from?.pathname || '/';
+   const [showPassword, setShowPassword] = useState(false);
+
+   const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+   };
 
    const {
       register,
       handleSubmit,
+      formState: { errors },
    } = useForm()
 
 
@@ -63,7 +71,7 @@ const Login = () => {
                Swal.fire({
                   position: "top-end",
                   icon: "success",
-                  title: "Login Successfully",
+                  title: "Login successfully",
                   showConfirmButton: false,
                   timer: 1500
                });
@@ -73,9 +81,9 @@ const Login = () => {
                Swal.fire({
                   position: "top-end",
                   icon: "error",
-                  title: "User Doesnt Exist",
+                  title: "User doesn’t exist, please enter the email and password correctly",
                   showConfirmButton: false,
-                  timer: 1500
+                  timer: 2000
                });
             });
       }
@@ -83,45 +91,57 @@ const Login = () => {
          Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "User Doesnt Exist",
+            title: "User doesn’t exist, please sign up",
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
          });
       }
    }
 
    return (
-      <>
+      <div>
          <Helmet>
-            <title>Login</title>
+            <title>Log in</title>
          </Helmet>
-
-         <div className="w-[85%] mx-auto shadow-2xl">
+         <div className="w-[95%] mx-auto shadow-2xl">
             <div className="max-w-md mx-auto bg-[#04101B] p-8 mt-20 rounded-lg">
+               <div className="text-[2.5rem] mb-3 font-semibold">Log in</div>
                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-control">
                      <label className="label">
                         <span className="label-text">Email</span>
                      </label>
-                     <input type="email" {...register("email")} placeholder="Email" className="input input-bordered h-[2.5rem] rounded-lg bg-[#05070A]" required />
+                     <input type="email" {...register("email", { required: true })} placeholder="Email" className="input input-bordered h-[2.5rem] rounded-lg bg-[#05070A]" required />
+                     {errors.email && <span className="text-red-500 text-[0.9rem]">Email is required</span>}
                   </div>
                   <div className="form-control">
                      <label className="label">
                         <span className="label-text">Password</span>
                      </label>
-                     <input type="password"  {...register("password")} placeholder="Password" className="input input-bordered h-[2.5rem] rounded-lg bg-[#05070A]" required />
-                     <label className="label">
-                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                     </label>
+                     <div className="relative">
+                        <input type={showPassword ? 'text' : 'password'}  {...register("password", { required: true })} placeholder="Password" className="input input-bordered h-[2.5rem] rounded-lg bg-[#05070A] w-full mb-2" />
+                        <button
+                           type="button"
+                           onClick={togglePasswordVisibility}
+                           className="absolute right-2 top-3"
+                        >
+                           {showPassword ? (
+                              <IoMdEyeOff />
+                           ) : (
+                              <IoMdEye />
+                           )}
+                        </button>
+                        {errors.password && <span className="text-red-600 text-[0.9rem]">Password is required</span>}
+                     </div>
                   </div>
                   <div className="form-control mt-6">
-                     <button className="btn bg-[#F3F5F9] text-[black] hover:bg-slate-200 rounded-lg">Login</button>
+                     <button className="btn bg-[#F3F5F9] text-[black] hover:bg-slate-200 rounded-lg">Log in</button>
                   </div>
                   <div className="mt-4 text-center">
-                     <p>Dont have an account? <Link to="/signup"><span className="hover:underline">Sign Up</span></Link> </p>
+                     <p>Don’t have an account? <Link to="/signup"><span className="hover:underline">Sign Up</span></Link> </p>
                   </div>
                   <div>
-                     <p className="text-center mt-2">or</p>
+                     <div className="divider">or</div>
                   </div>
                   <div className="form-control mt-4">
                      <div onClick={handelGoogleSignIn} className="btn bg-[#05070A] text-[white] hover:bg-[#000000] rounded-lg">
@@ -132,7 +152,7 @@ const Login = () => {
                </form>
             </div>
          </div>
-      </>
+      </div>
    );
 };
 

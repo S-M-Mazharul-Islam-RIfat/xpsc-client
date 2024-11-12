@@ -38,18 +38,18 @@ const ManageClubUsers = () => {
    return (
       <div>
          <Helmet>
-            <title>Manage User</title>
+            <title>Manage Club Users</title>
          </Helmet>
          <div>
-            <SectionTitle heading={"Manage Club User"}></SectionTitle>
+            <SectionTitle heading={"Manage Club Users"}></SectionTitle>
          </div>
          {
             loading ?
                <Loader></Loader>
                :
                <>
-                  <div className="py-6 overflow-x-auto">
-                     <table className="table w-[80%] mx-auto bg-zinc-900 rounded-lg">
+                  <div className="mt-8 overflow-x-auto">
+                     <table className="table w-[85%] mx-auto bg-zinc-900 rounded-lg">
                         <thead>
                            <tr className="leading-8">
                               <th>#</th>
@@ -84,10 +84,20 @@ const ManageClubUsers = () => {
                                     <td>{clubUser.codeforcesMaxRating}</td>
                                     <td>
                                        <Link to={`/dashboard/updateClubUser/${clubUser._id}`}>
-                                          <button className="custom-update-btn text-white">Update</button>
+                                          <button style={{
+                                             padding: '0px 12px',
+                                             borderRadius: '5px',
+                                             backgroundColor: '#dd9000',
+                                             border: 'none'
+                                          }} className="text-white">Update</button>
                                        </Link>
                                     </td>
-                                    <td><button onClick={() => handleDelete(clubUser)} className="custom-delete-btn text-white">Delete</button></td>
+                                    <td><button onClick={() => handleDelete(clubUser)} style={{
+                                       padding: '0px 12px',
+                                       borderRadius: '5px',
+                                       backgroundColor: '#cf4141',
+                                       border: 'none'
+                                    }} className="text-white">Delete</button></td>
                                  </tr>
                               )
                            }

@@ -43,7 +43,7 @@ const LeaderBoard = () => {
                <Loader></Loader>
                :
                <>
-                  <div className="my-8 overflow-x-auto">
+                  <div className="overflow-x-auto w-[95%] mx-auto mt-8">
                      <table className="table w-[65%] mx-auto bg-zinc-900 rounded-lg">
                         <thead className="leading-8">
                            <tr>
@@ -70,6 +70,7 @@ const LeaderBoard = () => {
                </>
          }
          <CustomPagination result={result} handlePagination={handlePagination} perPageItem={perPageItem}></CustomPagination>
+         <div className="mb-6"></div>
       </div>
    );
 };

@@ -17,13 +17,12 @@ import UpdateContest from "../Pages/DashBoard/UpdateContest/UpdateContest";
 import AddClubUser from "../Pages/DashBoard/AddClubUser/AddClubUser";
 import ManageClubUsers from "../Pages/DashBoard/ManageClubUsers/ManageClubUsers";
 import UpdateClubUser from "../Pages/DashBoard/UpdateClubUser/UpdateClubUser";
-import ExportData from "../Pages/DashBoard/ExportData/ExportData";
 import ManageAllUsers from "../Pages/DashBoard/ManageAllUsers/ManageAllUsers";
-import About from "../Pages/About/About";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import NotFound from "../Pages/NotFound/NotFound";
 
 
 export const router = createBrowserRouter([
@@ -41,12 +40,12 @@ export const router = createBrowserRouter([
          },
          {
             path: 'resultTypes/codeforcesContestListOfParticipants',
-            loader: () => fetch('https://xpsc-server.vercel.app/codeforcesContestList'),
+            loader: () => fetch('http://localhost:5000/codeforcesContestList'),
             element: <PrivateRoute><CodeforcesContestListOfParticipants></CodeforcesContestListOfParticipants></PrivateRoute>
          },
          {
             path: 'resultTypes/codeforcesContestListOfNonParticipants',
-            loader: () => fetch('https://xpsc-server.vercel.app/codeforcesContestList'),
+            loader: () => fetch('http://localhost:5000/codeforcesContestList'),
             element:
                <PrivateRoute>
                   <CodeforcesContestListOfNonParticipants></CodeforcesContestListOfNonParticipants>
@@ -54,22 +53,18 @@ export const router = createBrowserRouter([
          },
          {
             path: 'resultTypes/codeforcesContestListOfParticipants/:contestId',
-            loader: ({ params }) => fetch(`https://xpsc-server.vercel.app/codeforcesContestParticipantsResultsCountByContestId/${params.contestId}`),
+            loader: ({ params }) => fetch(`http://localhost:5000/codeforcesContestParticipantsResultsCountByContestId/${params.contestId}`),
             element: <PrivateRoute><CodeforcesIndividualContestResultOfParticipants></CodeforcesIndividualContestResultOfParticipants></PrivateRoute>
          },
          {
             path: 'resultTypes/codeforcesContestListOfNonParticipants/:contestId',
-            loader: ({ params }) => fetch(`https://xpsc-server.vercel.app/codeforcesContestNonParticipantsResultsCountByContestId/${params.contestId}`),
+            loader: ({ params }) => fetch(`http://localhost:5000/codeforcesContestNonParticipantsResultsCountByContestId/${params.contestId}`),
             element: <PrivateRoute><CodeforcesIndividualContestResultOfNonParticipants></CodeforcesIndividualContestResultOfNonParticipants></PrivateRoute>
          },
          {
             path: 'leaderBoard',
             element: <PrivateRoute><LeaderBoard></LeaderBoard></PrivateRoute>,
-            loader: () => fetch(`https://xpsc-server.vercel.app/clubUsersCount`)
-         },
-         {
-            path: 'about',
-            element: <About></About>
+            loader: () => fetch(`http://localhost:5000/clubUsersCount`)
          },
          {
             path: 'login',
@@ -96,7 +91,7 @@ export const router = createBrowserRouter([
          {
             path: 'updateContest/:id',
             element: <AdminRoute><UpdateContest></UpdateContest></AdminRoute>,
-            loader: ({ params }) => fetch(`https://xpsc-server.vercel.app/codeforcesContstList/${params.id}`)
+            loader: ({ params }) => fetch(`http://localhost:5000/codeforcesContstList/${params.id}`)
          },
          {
             path: 'addClubUser',
@@ -105,21 +100,21 @@ export const router = createBrowserRouter([
          {
             path: 'manageClubUser',
             element: <AdminRoute><ManageClubUsers></ManageClubUsers></AdminRoute>,
-            loader: () => fetch(`https://xpsc-server.vercel.app/clubUsersCount`)
+            loader: () => fetch(`http://localhost:5000/clubUsersCount`)
          },
          {
             path: 'updateClubUser/:id',
             element: <AdminRoute><UpdateClubUser></UpdateClubUser></AdminRoute>,
-            loader: ({ params }) => fetch(`https://xpsc-server.vercel.app/clubUsers/${params.id}`)
-         },
-         {
-            path: 'exportData',
-            element: <AdminRoute><ExportData></ExportData></AdminRoute>
+            loader: ({ params }) => fetch(`http://localhost:5000/clubUsers/${params.id}`)
          },
          {
             path: 'manageAllUsers',
             element: <AdminRoute><ManageAllUsers></ManageAllUsers></AdminRoute>
          }
       ]
+   },
+   {
+      path: '*',
+      element: <NotFound></NotFound>
    }
 ]);

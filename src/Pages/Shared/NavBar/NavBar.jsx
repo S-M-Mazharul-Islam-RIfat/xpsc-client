@@ -2,11 +2,22 @@ import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import useAdmin from "../../../Hooks/useAdmin";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { useEffect, useState } from "react";
 
 
 const NavBar = () => {
    const { user, logOut } = useAuth();
    const [isAdmin] = useAdmin();
+   const axiosPublic = useAxiosPublic();
+   const [userInfo, setUserInfo] = useState([]);
+
+   useEffect(() => {
+      axiosPublic.get(`/allUsers/${user?.email}`)
+         .then(res => {
+            setUserInfo(res.data);
+         })
+   }, [axiosPublic, user?.email])
 
    const handleLogout = () => {
       logOut()
@@ -34,13 +45,11 @@ const NavBar = () => {
             <NavLink to="/dashboard/addContest"><span className="font-bold rounded-md">DASHBOARD</span></NavLink>
          </li>
       }
-      <li>
-         <NavLink to="/about"><span className="font-bold rounded-md">ABOUT</span></NavLink>
-      </li>
       {
-         user ? <li>
-            <Link><button onClick={handleLogout} className="font-bold rounded-md">LOGOUT</button></Link>
-         </li>
+         user ?
+            <li>
+               <Link><button onClick={handleLogout} className="font-bold rounded-md">LOGOUT</button></Link>
+            </li>
             :
             <li>
                <NavLink to="/login"><span className="font-bold rounded-md">LOGIN</span></NavLink>
@@ -83,8 +92,8 @@ const NavBar = () => {
                   }
                </ul>
             </div>
-            <div className="navbar-end font-medium">
-               <a>{user?.email}</a>
+            <div className="navbar-end font-medium underline">
+               <a>{userInfo?.name}</a>
             </div>
          </div>
       </>

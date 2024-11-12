@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import useContest from "../../../Hooks/useContest";
-import './ManageContest.css';
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -189,8 +188,8 @@ const ManageContest = () => {
                <Loader></Loader>
                :
                <>
-                  <div className="py-6 overflow-x-auto">
-                     <table className="table w-[80%] mx-auto bg-zinc-900 rounded-lg">
+                  <div className="mt-8 overflow-x-auto">
+                     <table className="table w-[85%] mx-auto bg-zinc-900 rounded-lg">
                         <thead>
 
                            <tr className="leading-10">
@@ -213,13 +212,28 @@ const ManageContest = () => {
                                     <td>{singleContest.contestDate}</td>
                                     <td className="text-nowrap">{singleContest.contestStartTime}-{singleContest.contestEndTime}</td>
                                     <td>{singleContest.contestDuration}</td>
-                                    <td><button onClick={() => handleAdd(singleContest.contestId, singleContest.contestName)} className="custom-add-btn text-white">Add</button></td>
+                                    <td><button onClick={() => handleAdd(singleContest.contestId, singleContest.contestName)} style={{
+                                       padding: '0px 12px',
+                                       borderRadius: '5px',
+                                       backgroundColor: '#00a9dd',
+                                       border: 'none'
+                                    }} className="text-white">Add</button></td>
                                     <td>
                                        <Link to={`/dashboard/updateContest/${singleContest._id}`}>
-                                          <button className="custom-update-btn text-white">Update</button>
+                                          <button style={{
+                                             padding: '0px 12px',
+                                             borderRadius: '5px',
+                                             backgroundColor: '#dd9000',
+                                             border: 'none'
+                                          }} className="text-white">Update</button>
                                        </Link>
                                     </td>
-                                    <td><button onClick={() => handleDelete(singleContest)} className="custom-delete-btn text-white">Delete</button></td>
+                                    <td><button onClick={() => handleDelete(singleContest)} style={{
+                                       padding: '0px 12px',
+                                       borderRadius: '5px',
+                                       backgroundColor: '#cf4141',
+                                       border: 'none'
+                                    }} className="text-white">Delete</button></td>
                                  </tr>
                               )
                            }

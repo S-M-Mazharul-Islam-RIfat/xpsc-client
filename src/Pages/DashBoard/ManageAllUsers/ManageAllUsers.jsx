@@ -54,18 +54,18 @@ const ManageAllUsers = () => {
    return (
       <div>
          <Helmet>
-            <title>Manage All User</title>
+            <title>Manage All Users</title>
          </Helmet>
          <div>
-            <SectionTitle heading={"Manage All User"}></SectionTitle>
+            <SectionTitle heading={"Manage All Users"}></SectionTitle>
          </div>
          {
             loading ?
                <Loader></Loader>
                :
                <>
-                  <div className="py-6 overflow-x-auto">
-                     <table className="table w-[80%] mx-auto bg-zinc-900 rounded-lg">
+                  <div className="mt-8 overflow-x-auto">
+                     <table className="table w-[85%] mx-auto bg-zinc-900 rounded-lg">
                         <thead>
                            <tr className="leading-8">
                               <th>#</th>
@@ -87,16 +87,31 @@ const ManageAllUsers = () => {
                                     <td>
                                        {
                                           user?.role == 'user' ?
-                                             <button onClick={() => handleRole(user)} className="custom-update-btn text-white">
+                                             <button onClick={() => handleRole(user)} style={{
+                                                padding: '0px 12px',
+                                                borderRadius: '5px',
+                                                backgroundColor: '#dd9000',
+                                                border: 'none'
+                                             }} className="text-white">
                                                 Make Admin
                                              </button>
                                              :
-                                             <button onClick={() => handleRole(user)} className="custom-update-btn text-white">
+                                             <button onClick={() => handleRole(user)} style={{
+                                                padding: '0px 12px',
+                                                borderRadius: '5px',
+                                                backgroundColor: '#dd9000',
+                                                border: 'none'
+                                             }} className="text-white">
                                                 Make User
                                              </button>
                                        }
                                     </td>
-                                    <td><button onClick={() => handleDelete(user)} className="custom-delete-btn text-white">Delete</button></td>
+                                    <td><button onClick={() => handleDelete(user)} style={{
+                                       padding: '0px 12px',
+                                       borderRadius: '5px',
+                                       backgroundColor: '#cf4141',
+                                       border: 'none'
+                                    }} className="text-white">Delete</button></td>
                                  </tr>
                               )
                            }
