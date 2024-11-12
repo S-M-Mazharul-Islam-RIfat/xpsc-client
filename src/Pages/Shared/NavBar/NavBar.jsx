@@ -83,7 +83,11 @@ const NavBar = () => {
                      }
                   </ul>
                </div>
-               <Link to="/" className="btn btn-ghost text-xl text-cyan-500 font-bold">XPSC</Link>
+               <Link to="/">
+                  <div className="w-14 rounded">
+                     <img src="https://i.ibb.co.com/447Dppr/create-a-problem-solving-club-creative-design-name-1-removebg-preview.png" />
+                  </div>
+               </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                <ul className="menu menu-horizontal px-1">
