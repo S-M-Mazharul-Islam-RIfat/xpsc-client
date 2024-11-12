@@ -1,8 +1,30 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Coffee Shop
 
-Currently, two official plugins are available:
+This is a fully responsive full-stack Problem Solving Club management system for the Xettabyte Problem Solvers Club based on Codeforces. Through this platform, users can view the club leaderboard and check the lists of participants and non-participants for each Codeforces contest.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- User can create account and login via firebase.
+- User can view the club leaderboard.
+- User can check the lists of participants and non-participants for each Codeforces contest.
+- Admin can create account and login via firebase.
+- Admin can add,delete and manage club students.
+- Admin can manage all users.
+- Admin can add each contest results of codeforces by merging 3 Codeforces api.
+- Admin can manage contest results.
+- Admin have the dashboard.
+
+## Frontend Technology
+- React js
+- React router
+- Tailwind CSS
+- Daisy UI
+- Material UI
+- React hook form
+- Axios
+- Firebase auth
+
+## Backend Technology
+- Node js
+- Express js
+- MongoDB
