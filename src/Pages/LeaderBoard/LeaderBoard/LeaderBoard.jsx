@@ -4,11 +4,11 @@ import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import Loader from "../../Shared/Loader/Loader";
 import ShowLeaderBoardIndividualInfo from "../ShowLeaderBoardIndividualInfo/ShowLeaderBoardIndividualInfo";
-import useAxiosSecure from './../../../Hooks/useAxiosSecure';
 import CustomPagination from "../../../Components/CustomPagination/CustomPagination";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const LeaderBoard = () => {
-   const axiosSecure = useAxiosSecure();
+   const axiosPublic = useAxiosPublic();
    const [allClubUsers, setAllClubUsers] = useState([]);
    const { result } = useLoaderData();
    const [page, setPage] = useState(1);
@@ -23,12 +23,12 @@ const LeaderBoard = () => {
    }
 
    useEffect(() => {
-      axiosSecure.get(`/leaderboard?page=${page - 1}&size=${perPageItem}`)
+      axiosPublic.get(`/leaderboard?page=${page - 1}&size=${perPageItem}`)
          .then(res => {
             setAllClubUsers(res.data);
             setLoading(false);
          })
-   }, [axiosSecure, page])
+   }, [axiosPublic, page])
 
    return (
       <div>
