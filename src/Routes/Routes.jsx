@@ -63,7 +63,7 @@ export const router = createBrowserRouter([
          },
          {
             path: 'leaderBoard',
-            element: <PrivateRoute><LeaderBoard></LeaderBoard></PrivateRoute>,
+            element: <LeaderBoard></LeaderBoard>,
             loader: () => fetch(`https://xpsc-server.vercel.app/clubUsersCount`)
          },
          {
