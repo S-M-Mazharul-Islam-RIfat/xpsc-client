@@ -24,7 +24,7 @@ const ManageAllUsers = () => {
                refetch();
                Swal.fire({
                   title: "Deleted!",
-                  text: `${user.name} has been deleted`,
+                  text: `User has been deleted`,
                   icon: "success"
                });
             }

@@ -27,7 +27,7 @@ const ManageClubUsers = () => {
                refetch();
                Swal.fire({
                   title: "Deleted!",
-                  text: `${clubUser.name} has been deleted`,
+                  text: `Club user has been deleted`,
                   icon: "success"
                });
             }

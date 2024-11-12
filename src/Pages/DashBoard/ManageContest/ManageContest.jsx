@@ -31,7 +31,7 @@ const ManageContest = () => {
                refetch();
                Swal.fire({
                   title: "Deleted!",
-                  text: `${singleContest.name} has been deleted`,
+                  text: `Contest has been deleted`,
                   icon: "success"
                });
             }
@@ -128,7 +128,6 @@ const ManageContest = () => {
             return Array.from(usersMap.values())[0];
 
          } catch (error) {
-            console.error('Error fetching or merging data:', error);
             return null;
          }
       };
