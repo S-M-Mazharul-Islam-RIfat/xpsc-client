@@ -104,7 +104,7 @@ const Login = () => {
             <title>Log in</title>
          </Helmet>
          <div className="w-[95%] mx-auto shadow-2xl">
-            <div className="max-w-md mx-auto bg-[#04101B] p-8 mt-20 rounded-lg">
+            <div className="max-w-md mx-auto bg-[#04101B] p-8 mt-12 md:mt-14 lg:mt-20 rounded-lg">
                <div className="text-[2.5rem] mb-3 font-semibold">Log in</div>
                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="form-control">
