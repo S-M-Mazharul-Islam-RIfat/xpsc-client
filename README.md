@@ -32,3 +32,4 @@ This is a fully responsive full-stack Problem Solving Club management system for
 - Node js
 - Express js
 - MongoDB
+- JWT
