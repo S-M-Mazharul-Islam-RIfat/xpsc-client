@@ -54,7 +54,7 @@ const ManageAllUsers = () => {
    return (
       <div>
          <Helmet>
-            <title>Manage All Users</title>
+            <title>Dashboard | Manage All Users</title>
          </Helmet>
          <div>
             <SectionTitle heading={"Manage All Users"}></SectionTitle>

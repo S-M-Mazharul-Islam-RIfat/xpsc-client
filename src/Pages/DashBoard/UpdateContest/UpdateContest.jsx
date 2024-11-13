@@ -39,7 +39,7 @@ const UpdateContest = () => {
    return (
       <div>
          <Helmet>
-            <title>Update Contest</title>
+            <title>Dashboard | Update Contest</title>
          </Helmet>
          <div>
             <SectionTitle heading={"Update Contest"}></SectionTitle>

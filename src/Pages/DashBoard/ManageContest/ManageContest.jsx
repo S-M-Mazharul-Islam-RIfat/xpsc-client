@@ -177,7 +177,7 @@ const ManageContest = () => {
    return (
       <div>
          <Helmet>
-            <title>Manage Contest</title>
+            <title>Dashboard | Manage Contest</title>
          </Helmet>
          <div>
             <SectionTitle heading={"Manage Contest"}></SectionTitle>

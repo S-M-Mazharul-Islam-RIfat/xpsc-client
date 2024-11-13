@@ -38,7 +38,7 @@ const ManageClubUsers = () => {
    return (
       <div>
          <Helmet>
-            <title>Manage Club Users</title>
+            <title>Dashboard | Manage Club Users</title>
          </Helmet>
          <div>
             <SectionTitle heading={"Manage Club Users"}></SectionTitle>

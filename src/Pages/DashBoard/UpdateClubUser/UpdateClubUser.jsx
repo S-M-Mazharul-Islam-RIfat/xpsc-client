@@ -59,7 +59,7 @@ const UpdateClubUser = () => {
    return (
       <div>
          <Helmet>
-            <title>Update Club User</title>
+            <title>Dashboard | Update Club User</title>
          </Helmet>
          <div>
             <SectionTitle heading={"Update Club User"}></SectionTitle>

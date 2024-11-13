@@ -40,7 +40,7 @@ const AddContest = () => {
    return (
       <div>
          <Helmet>
-            <title>Add Contest</title>
+            <title>Dashboard | Add Contest</title>
          </Helmet>
          <div>
             <SectionTitle heading={"Add Contest"}></SectionTitle>
