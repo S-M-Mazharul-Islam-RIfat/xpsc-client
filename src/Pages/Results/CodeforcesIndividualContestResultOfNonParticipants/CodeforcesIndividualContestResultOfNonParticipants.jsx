@@ -39,7 +39,7 @@ const CodeforcesIndividualContestResultOfNonParticipants = () => {
    return (
       <div>
          <Helmet>
-            <title>Result | {contestInfo.contestName}</title>
+            <title>Result | Codeforces Non Participants Result</title>
          </Helmet>
          {
             loading ?
